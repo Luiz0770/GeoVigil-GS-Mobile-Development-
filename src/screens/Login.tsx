@@ -20,8 +20,6 @@ export function Login({ navigation }: Props) {
   const [erro, setErro] = useState('');
   const [carregando, setCarregando] = useState(false);
   const [mostrarCred, setMostrarCred] = useState(false);
-  const [emailFocus, setEmailFocus] = useState(false);
-  const [senhaFocus, setSenhaFocus] = useState(false);
 
   const cred = obterCredenciaisTeste();
 
@@ -72,7 +70,7 @@ export function Login({ navigation }: Props) {
             {/* Campo email */}
             <View style={estilos.campo}>
               <Text style={estilos.campoLabel}>Email</Text>
-              <View style={[estilos.inputWrap, emailFocus && estilos.inputFoco]}>
+              <View style={estilos.inputWrap}>
                 <Text style={estilos.inputIcon}>✉️</Text>
                 <TextInput
                   style={estilos.input}
@@ -82,8 +80,6 @@ export function Login({ navigation }: Props) {
                   placeholderTextColor={CORES.textoMuted}
                   keyboardType="email-address"
                   autoCapitalize="none"
-                  onFocus={() => setEmailFocus(true)}
-                  onBlur={() => setEmailFocus(false)}
                   onSubmitEditing={entrar}
                 />
               </View>
@@ -92,7 +88,7 @@ export function Login({ navigation }: Props) {
             {/* Campo senha */}
             <View style={estilos.campo}>
               <Text style={estilos.campoLabel}>Senha</Text>
-              <View style={[estilos.inputWrap, senhaFocus && estilos.inputFoco]}>
+              <View style={estilos.inputWrap}>
                 <Text style={estilos.inputIcon}>🔒</Text>
                 <TextInput
                   style={estilos.input}
@@ -101,8 +97,6 @@ export function Login({ navigation }: Props) {
                   placeholder="••••••••"
                   placeholderTextColor={CORES.textoMuted}
                   secureTextEntry
-                  onFocus={() => setSenhaFocus(true)}
-                  onBlur={() => setSenhaFocus(false)}
                   onSubmitEditing={entrar}
                 />
               </View>
@@ -224,14 +218,6 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 12,
     height: ALTURAS.input,
     gap: 10,
-  },
-  inputFoco: {
-    borderColor: CORES.azul,
-    shadowColor: CORES.azulEl,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 4,
   },
   inputIcon: { fontSize: 16 },
   input: {

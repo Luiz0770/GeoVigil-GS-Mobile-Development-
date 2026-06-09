@@ -46,9 +46,6 @@ export function NovaOcorrencia({ navigation }: Props) {
   const [risco, setRisco] = useState<NivelRisco | null>(null);
   const [descricao, setDescricao] = useState('');
   const [carregando, setCarregando] = useState(false);
-  const [bairroFocus, setBairroFocus] = useState(false);
-  const [ruaFocus, setRuaFocus] = useState(false);
-  const [descFocus, setDescFocus] = useState(false);
 
   const valido = bairro.trim().length > 0 && rua.trim().length > 0 && tipo !== null && risco !== null;
 
@@ -95,7 +92,7 @@ export function NovaOcorrencia({ navigation }: Props) {
           {/* Localização */}
           <SectionLabel label="Localização" />
           <View style={{ gap: 12, marginBottom: 24 }}>
-            <View style={[estilos.inputWrap, bairroFocus && estilos.inputFoco]}>
+            <View style={estilos.inputWrap}>
               <Text style={estilos.inputIcon}>📍</Text>
               <TextInput
                 style={estilos.input}
@@ -103,11 +100,9 @@ export function NovaOcorrencia({ navigation }: Props) {
                 onChangeText={setBairro}
                 placeholder="Bairro"
                 placeholderTextColor={CORES.textoMuted}
-                onFocus={() => setBairroFocus(true)}
-                onBlur={() => setBairroFocus(false)}
               />
             </View>
-            <View style={[estilos.inputWrap, ruaFocus && estilos.inputFoco]}>
+            <View style={estilos.inputWrap}>
               <Text style={estilos.inputIcon}>📍</Text>
               <TextInput
                 style={estilos.input}
@@ -115,8 +110,6 @@ export function NovaOcorrencia({ navigation }: Props) {
                 onChangeText={setRua}
                 placeholder="Rua e número"
                 placeholderTextColor={CORES.textoMuted}
-                onFocus={() => setRuaFocus(true)}
-                onBlur={() => setRuaFocus(false)}
               />
             </View>
           </View>
@@ -168,15 +161,13 @@ export function NovaOcorrencia({ navigation }: Props) {
           <SectionLabel label="Descrição" style={{ marginTop: 24 }} />
           <View style={estilos.descWrap}>
             <TextInput
-              style={[estilos.textarea, descFocus && estilos.inputFoco]}
+              style={estilos.textarea}
               value={descricao}
               onChangeText={(v) => setDescricao(v.slice(0, MAX_DESC))}
               placeholder="Descreva o risco observado (ex: nível da água, rachaduras, fumaça)..."
               placeholderTextColor={CORES.textoMuted}
               multiline
               textAlignVertical="top"
-              onFocus={() => setDescFocus(true)}
-              onBlur={() => setDescFocus(false)}
             />
             <Text style={[estilos.contador, descricao.length > MAX_DESC - 30 && { color: CORES.riscoMedio }]}>
               {descricao.length}/{MAX_DESC}
@@ -253,12 +244,6 @@ const estilos = StyleSheet.create({
     borderRadius: RAIOS.md,
     paddingHorizontal: 12,
     height: ALTURAS.input, gap: 10,
-  },
-  inputFoco: {
-    borderColor: CORES.azul,
-    shadowColor: CORES.azulEl,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4, shadowRadius: 8, elevation: 4,
   },
   inputIcon: { fontSize: 16 },
   input: { flex: 1, color: CORES.texto, fontSize: 14 },

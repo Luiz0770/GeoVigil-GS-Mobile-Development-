@@ -62,9 +62,13 @@ export function NovaOcorrencia({ navigation }: Props) {
         descricao: descricao.trim() || 'Sem descrição adicional informada.',
         nivelRisco: risco!,
       });
-      Alert.alert('Alerta registrado!', 'Seu alerta foi publicado no feed da comunidade.', [
-        { text: 'OK', onPress: () => navigation.navigate('Home') },
-      ]);
+      if (Platform.OS === 'web') {
+        navigation.navigate('Home');
+      } else {
+        Alert.alert('Alerta registrado!', 'Seu alerta foi publicado no feed da comunidade.', [
+          { text: 'OK', onPress: () => navigation.navigate('Home') },
+        ]);
+      }
     } catch {
       Alert.alert('Erro', 'Não foi possível registrar o alerta. Tente novamente.');
     } finally {

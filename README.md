@@ -18,11 +18,11 @@
 
 ## Descrição da Solução
 
-O **GeoVigil** é um aplicativo comunitário de alerta precoce para desastres naturais. Moradores registram sinais de risco observados no dia a dia — nível de rio subindo, rachaduras em encosta, focos de fumaça, ventos fortes — formando uma rede colaborativa de vigilância que complementa os canais oficiais de defesa civil.
+O **GeoVigil** é um aplicativo comunitário de alerta precoce para desastres naturais. Dados baseados em informações de satélites e de moradores são analisados e registrados para monitorar sinais de risco observados no dia a dia — nível de rio subindo, rachaduras em encosta, focos de fumaça, ventos fortes — formando uma rede colaborativa de vigilância que complementa os canais oficiais de defesa civil.
 
 ### Problema Abordado
 
-Desastres naturais em ambientes urbanos frequentemente têm sinais antecipados perceptíveis pela própria comunidade, mas não existe um canal simples e rápido para que esses sinais sejam registrados e compartilhados antes que os órgãos oficiais tomem ciência. O GeoVigil preenche essa lacuna.
+Desastres naturais em ambientes urbanos frequentemente têm sinais antecipados perceptíveis, mas não existe um canal simples e rápido para que esses sinais sejam registrados e compartilhados antes que os órgãos oficiais tomem ciência. O GeoVigil preenche essa lacuna.
 
 ### Funcionalidades
 

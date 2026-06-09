@@ -262,6 +262,7 @@ const estilos = StyleSheet.create({
     position: 'absolute',
     right: 20,
     bottom: 40,
+    borderRadius: RAIOS.fab,
     shadowColor: '#3B82F6',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.9,
